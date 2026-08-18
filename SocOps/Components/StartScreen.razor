@@ -1,23 +1,56 @@
-<div class="flex flex-col items-center justify-center min-h-full p-6 bg-space">
-    <div class="text-center max-w-sm">
-        <h1 class="text-5xl font-bold text-gold glow-gold-intense mb-2">Soc Ops</h1>
-        <p class="text-2xl text-cyan mb-8">Social Bingo</p>
+<div class="landing-starfield min-h-full">
+    <main class="landing-shell">
+        <section class="landing-hero landing-reveal">
+            <p class="landing-kicker">Social Bingo // Room Scanner Online</p>
+            <h1 class="landing-title text-gold glow-gold-intense">Soc Ops</h1>
+            <p class="landing-subtitle text-cyan-light">
+                Find your allies across the room. Match prompts, mark coordinates, and complete a line before the signal fades.
+            </p>
 
-        <div class="bg-space-light rounded-lg p-6 shadow-glow-cyan border-2 border-glow-cyan mb-8">
-            <h2 class="font-semibold text-gold mb-3 text-lg glow-gold">How to play</h2>
-            <ul class="text-left text-cyan-light text-sm space-y-2">
-                <li>• Find people who match the questions</li>
-                <li>• Tap a square when you find a match</li>
-                <li>• Get 5 in a row to win!</li>
-            </ul>
-        </div>
+            <div class="landing-actions">
+                <button
+                    @onclick="OnStart"
+                    class="landing-primary-button bg-gold text-space font-semibold transition-all duration-150 transform hover:scale-105">
+                    Start Mission
+                </button>
+                <span class="landing-note text-cyan-muted">25 prompts. 5 in a row. One room-wide search.</span>
+            </div>
+        </section>
 
-        <button
-            @onclick="OnStart"
-            class="w-full bg-gold text-space font-semibold py-4 px-8 rounded-lg text-lg hover:shadow-glow-gold-intense transition-all duration-150 transform hover:scale-105">
-            Start Game
-        </button>
-    </div>
+        <aside class="landing-panel landing-reveal delay-200">
+            <div class="landing-panel-header">
+                <span class="landing-panel-eyebrow text-cyan-muted">Mission Briefing</span>
+                <span class="landing-status text-gold">Ready</span>
+            </div>
+
+            <div class="landing-radar" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <ol class="landing-steps text-cyan-light">
+                <li><strong>Find</strong> people who match the prompts.</li>
+                <li><strong>Mark</strong> a square when you confirm a match.</li>
+                <li><strong>Win</strong> by completing any 5-square line.</li>
+            </ol>
+
+            <div class="landing-stats">
+                <div>
+                    <strong class="text-gold">5x5</strong>
+                    <span>Grid</span>
+                </div>
+                <div>
+                    <strong class="text-gold">Free</strong>
+                    <span>Center</span>
+                </div>
+                <div>
+                    <strong class="text-gold">Live</strong>
+                    <span>Room Play</span>
+                </div>
+            </div>
+        </aside>
+    </main>
 </div>
 
 @code {
