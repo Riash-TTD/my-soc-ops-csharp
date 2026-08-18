@@ -1,26 +1,26 @@
 @using SocOps.Models
 
-<div class="flex flex-col min-h-full bg-gray-50">
+<div class="flex flex-col min-h-full bg-space">
     <!-- Header -->
-    <header class="flex items-center justify-between p-3 bg-white border-b border-gray-200">
+    <header class="flex items-center justify-between p-3 bg-space-light border-b border-glow-cyan">
         <button
             @onclick="OnReset"
-            class="text-gray-500 text-sm px-3 py-1.5 rounded active:bg-gray-100">
+            class="text-cyan-muted text-sm px-3 py-1.5 rounded hover:text-cyan transition-colors">
             ← Back
         </button>
-        <h1 class="font-bold text-gray-900">Soc Ops</h1>
+        <h1 class="font-bold text-gold text-4xl glow-gold">Soc Ops</h1>
         <div class="w-16"></div>
     </header>
 
     <!-- Instructions -->
-    <p class="text-center text-gray-500 text-sm py-2 px-4">
+    <p class="text-center text-cyan-muted text-sm py-2 px-4">
         Tap a square when you find someone who matches it.
     </p>
 
     <!-- Bingo indicator -->
     @if (HasBingo)
     {
-        <div class="bg-amber-100 text-amber-800 text-center py-2 font-semibold text-sm">
+        <div class="bg-space-lighter text-gold text-center py-2 font-semibold text-sm border-t border-b border-glow-gold glow-gold">
             🎉 BINGO! You got a line!
         </div>
     }

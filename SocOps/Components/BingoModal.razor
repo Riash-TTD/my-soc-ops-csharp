@@ -1,12 +1,12 @@
-<div class="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
-    <div class="bg-white rounded-xl p-6 max-w-xs w-full text-center shadow-xl animate-[bounce_0.5s_ease-out]">
+<div class="fixed inset-0 bg-black/70 flex items-center justify-center p-4 z-50">
+    <div class="bg-space-light rounded-xl p-6 max-w-xs w-full text-center shadow-glow-gold-intense border-2 border-glow-gold animate-[bounce_0.5s_ease-out] animate-pulse-glow">
         <div class="text-5xl mb-4">🎉</div>
-        <h2 class="text-3xl font-bold text-amber-500 mb-2">BINGO!</h2>
-        <p class="text-gray-600 mb-6">You completed a line!</p>
+        <h2 class="text-4xl font-bold text-gold glow-gold-intense mb-2">BINGO!</h2>
+        <p class="text-cyan-light mb-6 text-lg">You completed a line!</p>
 
         <button
             @onclick="OnDismiss"
-            class="w-full bg-accent text-white font-semibold py-3 px-6 rounded-lg active:bg-accent-light transition-colors">
+            class="w-full bg-gold text-space font-semibold py-3 px-6 rounded-lg hover:shadow-glow-gold-intense transition-all duration-150 transform hover:scale-105">
             Keep Playing
         </button>
     </div>

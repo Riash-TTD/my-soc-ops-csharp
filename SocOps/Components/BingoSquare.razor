@@ -9,7 +9,7 @@
     <span class="wrap-break-word hyphens-auto">@Square.Text</span>
     @if (Square.IsMarked && !Square.IsFreeSpace)
     {
-        <span class="absolute top-0.5 right-0.5 text-green-600 text-xs">✓</span>
+        <span class="absolute top-0.5 right-0.5 text-cyan text-xs">✓</span>
     }
 </button>
 
@@ -25,15 +25,15 @@
 
     private string GetCssClasses()
     {
-        var baseClasses = "relative flex items-center justify-center p-1 text-center border border-gray-300 rounded transition-all duration-150 select-none min-h-[60px] text-xs leading-tight";
+        var baseClasses = "relative flex items-center justify-center p-1 text-center rounded transition-all duration-150 select-none min-h-[60px] text-xs leading-tight font-medium";
 
         var stateClasses = Square.IsMarked
             ? IsWinning
-                ? "bg-amber-200 border-amber-400 text-amber-900"
-                : "bg-marked border-marked-border text-green-800"
-            : "bg-white text-gray-700 active:bg-gray-100";
+                ? "bg-cyan border-2 border-gold text-gold animate-pulse-glow shadow-glow-cyan-intense"
+                : "bg-gold border-2 border-cyan text-space font-bold shadow-glow-gold-intense"
+            : "bg-space-lighter border-2 border-cyan text-cyan-light shadow-glow-cyan hover:border-cyan hover:shadow-glow-cyan-intense";
 
-        var freeSpaceClasses = Square.IsFreeSpace ? "font-bold text-sm" : "";
+        var freeSpaceClasses = Square.IsFreeSpace ? "font-bold text-sm text-gold glow-gold" : "";
 
         return $"{baseClasses} {stateClasses} {freeSpaceClasses}";
     }

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
 html,
 body,
 #app {
@@ -5,8 +7,27 @@ body,
     margin: 0;
 }
 
+:root {
+    /* Dark theme - Star Wars inspired */
+    --bg-primary: #0a0e27;
+    --bg-secondary: #1a1f3a;
+    --bg-tertiary: #252d47;
+    --text-primary: #e0f7ff;
+    --text-secondary: #b0d4ff;
+    --text-tertiary: #7a9fbf;
+    --accent-primary: #ffd700;
+    --accent-secondary: #00d4ff;
+    --accent-tertiary: #ff6b9d;
+    --border-glow: rgba(0, 212, 255, 0.4);
+    --border-glow-intense: rgba(0, 212, 255, 0.8);
+    --accent-glow: rgba(255, 215, 0, 0.3);
+    --accent-glow-intense: rgba(255, 215, 0, 0.8);
+}
+
 body {
-    font-family: system-ui, -apple-system, sans-serif;
+    font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
     -webkit-tap-highlight-color: transparent;
 }
 
@@ -59,7 +80,19 @@ body {
 .bg-marked { background-color: #dcfce7; }
 .bg-black\/50 { background-color: rgba(0, 0, 0, 0.5); }
 
+/* Dark theme background colors */
+.bg-space { background-color: var(--bg-primary); }
+.bg-space-light { background-color: var(--bg-secondary); }
+.bg-space-lighter { background-color: var(--bg-tertiary); }
+.bg-gold { background-color: var(--accent-primary); }
+.bg-cyan { background-color: var(--accent-secondary); }
+
+/* Dark theme text colors */
 .text-white { color: #ffffff; }
+.text-cyan { color: var(--text-primary); }
+.text-cyan-light { color: var(--text-secondary); }
+.text-cyan-muted { color: var(--text-tertiary); }
+.text-gold { color: var(--accent-primary); }
 .text-gray-500 { color: #6b7280; }
 .text-gray-600 { color: #4b5563; }
 .text-gray-700 { color: #374151; }
@@ -91,6 +124,14 @@ body {
 .border-amber-400 { border-color: #fbbf24; }
 .border-marked-border { border-color: #22c55e; }
 
+/* Dark theme border colors */
+.border-cyan { border-color: var(--accent-secondary); }
+.border-gold { border-color: var(--accent-primary); }
+.border-glow-cyan { border: 1px solid var(--accent-secondary); box-shadow: 0 0 10px var(--border-glow); }
+.border-glow-cyan-intense { border: 1px solid var(--accent-secondary); box-shadow: 0 0 20px var(--border-glow-intense); }
+.border-glow-gold { border: 1px solid var(--accent-primary); box-shadow: 0 0 10px var(--accent-glow); }
+.border-glow-gold-intense { border: 1px solid var(--accent-primary); box-shadow: 0 0 20px var(--accent-glow-intense); }
+
 .rounded { border-radius: 0.25rem; }
 .rounded-lg { border-radius: 0.5rem; }
 .rounded-xl { border-radius: 0.75rem; }
@@ -116,6 +157,16 @@ body {
 .transition-all { transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 150ms; }
 .transition-colors { transition-property: color, background-color, border-color; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 150ms; }
 .duration-150 { transition-duration: 150ms; }
+
+/* Glow effects */
+.glow-cyan { text-shadow: 0 0 10px rgba(0, 212, 255, 0.5); }
+.glow-cyan-intense { text-shadow: 0 0 20px rgba(0, 212, 255, 0.8); }
+.glow-gold { text-shadow: 0 0 15px rgba(255, 215, 0, 0.5); }
+.glow-gold-intense { text-shadow: 0 0 30px rgba(255, 215, 0, 0.8); }
+.shadow-glow-cyan { box-shadow: 0 0 15px rgba(0, 212, 255, 0.4); }
+.shadow-glow-cyan-intense { box-shadow: 0 0 25px rgba(0, 212, 255, 0.8); }
+.shadow-glow-gold { box-shadow: 0 0 15px rgba(255, 215, 0, 0.4); }
+.shadow-glow-gold-intense { box-shadow: 0 0 25px rgba(255, 215, 0, 0.8); }
 
 button:active .active\:bg-gray-100 { background-color: #f3f4f6; }
 button:active .active\:bg-accent-light { background-color: #3b82f6; }
@@ -160,6 +211,84 @@ button:disabled {
 
 .animate-\[bounce_0\.5s_ease-out\] {
     animation: bounce 0.5s ease-out;
+}
+
+/* Star Wars inspired animations */
+@keyframes pulse-glow {
+    0%, 100% {
+        box-shadow: 0 0 10px rgba(255, 215, 0, 0.3), 0 0 20px rgba(0, 212, 255, 0.2);
+        opacity: 1;
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.6), 0 0 30px rgba(0, 212, 255, 0.4);
+        opacity: 1;
+    }
+}
+
+@keyframes laser-activate {
+    0% {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes stagger-in {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scan-effect {
+    0%, 100% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+.animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-laser-activate {
+    animation: laser-activate 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.animate-scan {
+    animation: scan-effect 1.5s ease-in-out infinite;
+}
+
+/* Stagger delay utilities for animation sequencing */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+.delay-600 { animation-delay: 0.6s; }
+.delay-700 { animation-delay: 0.7s; }
+.delay-800 { animation-delay: 0.8s; }
+.delay-900 { animation-delay: 0.9s; }
+
+/* Hover scale effect */
+.hover\:scale-105:hover {
+    transform: scale(1.05);
+}
+
+.transform {
+    transform: translateZ(0);
 }
 
 #blazor-error-ui {
